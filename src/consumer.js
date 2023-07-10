@@ -15,9 +15,8 @@ const init = async () => {
   await channel.assertQueue('export:notes', {
     durable: true
   })
-
+  console.log('consumed')
   channel.consume('export:notes', listener.listen, { noAck: true })
-  console.log('Email termakan')
 }
 
 init()

@@ -1,10 +1,9 @@
-const autobind = require('auto-bind')
-
 class Listener {
   constructor (notesService, mailSender) {
     this._notesService = notesService
     this._mailSender = mailSender
-    autobind(this)
+
+    this.listen = this.listen.bind(this)
   }
 
   async listen (message) {
